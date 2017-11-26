@@ -4,9 +4,8 @@ const token = "MzgyOTkyOTQyMDkwMDI3MDM5.DPdyMA.acOBvno_9osaMa2g2xCeW8JIkzY";
 const bot = new Discord.Client();
 const prefix = "."
 
-var msg = message;
-
 client.on('message', message => {	
+var msg = message;
 
 let afk = JSON.parse(fs.readFileSync("./afks.json", "utf8"));
 if (message.content.startsWith(prefix + "remafk")){
