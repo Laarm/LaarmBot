@@ -6,6 +6,8 @@ const prefix = "."
 
 var msg = message;
 
+client.on('message', message => {	
+
 let afk = JSON.parse(fs.readFileSync("./afks.json", "utf8"));
 if (message.content.startsWith(prefix + "remafk")){
 if (afk[msg.author.id]) {
@@ -50,9 +52,9 @@ message.channel.send(`@${mentionned.username} is AFK: ${afk[msg.mentions.users.f
 }
 }
 }
-
+})
 bot.on('guildMemberAdd', gMember => {
-    var reason = "C'est le rôlebpar default!";
+    var reason = "C'est le rôle par default!";
     //tools.welcomeUserWithImg(gMember.user, gMember.user.avatarURL);
     tools.addRoleTo(gMember.user, usefulInfos.defaultRole, reason, gMember);
     usefulInfos.welcomeChannel.send("Bienvenue sur un serveur ! Passes un agrébale moment !");
