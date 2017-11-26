@@ -13,7 +13,7 @@ if(message.content.startsWith(prefix + "help")){
 
 (async function() {
 
- const mainMessage = await message.channel.send("Help | CrafteurBot:\n **c!help** : Voire ce message\n**c!afk <message>** : Vous mettre en afk\n**c!remafk** : Enlever l'afk");
+ const mainMessage = await message.channel.send("Help | LaarmBot:\n **c!help** : Voire ce message\n**c!afk <message>** : Vous mettre en afk\n**c!remafk** : Enlever l'afk");
 
 await mainMessage.react("◀");
 await mainMessage.react("▶");
