@@ -9,17 +9,44 @@ const fs = require("fs");
 client.on('message', message => {	
 var msg = message;
 
- 
-    
-    var mentionned = message.mentions.users.first();
-if(msg.mentions.users.size > 0) {
-if (afk[msg.mentions.users.first().id]) {
-if (afk[msg.mentions.users.first().id].reason === true) {
-message.channel.send(`@${mentionned.username} is AFK: pas de raison`);
-}else{
-message.channel.send(`@${mentionned.username} is AFK: ${afk[msg.mentions.users.first().id].reason}`);
-}
+if(message.content.startsWith(prefix + "help")){
 
+(async function() {
+
+ const mainMessage = await message.channel.send("Help | CrafteurBot:\n **c!help** : Voire ce message\n**c!afk <message>** : Vous mettre en afk\n**c!remafk** : Enlever l'afk");
+
+await mainMessage.react("◀");
+await mainMessage.react("▶");
+await mainMessage.react("🛑");
+
+const panier = mainMessage.createReactionCollector((reaction, user) => user.id === message.author.id);
+ 
+panier.on('collect', async(reaction) => 
+{
+ if (reaction.emoji.name === "◀") {
+
+mainMessage.edit("Help | LaarmBot:\n **c!help** : Voire ce message");
+
+ }
+if (reaction.emoji.name === "▶") {
+
+mainMessage.edit("Help | LaarmBot:\n **Page.2**");
+ 
+}
+if (reaction.emoji.name === "🛑") {
+
+mainMessage.delete()
+
+ }
+
+ await reaction.remove(message.author.id);
+
+});
+ }());
+}	
+	
+    
+    
 })
 bot.on('guildMemberAdd', gMember => {
     var reason = "C'est le rôle par default!";
