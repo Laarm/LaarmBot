@@ -4,6 +4,8 @@ const token = "MzgyOTkyOTQyMDkwMDI3MDM5.DPdyMA.acOBvno_9osaMa2g2xCeW8JIkzY";
 const bot = new Discord.Client();
 const prefix = ".";
 
+const fs = require("fs");
+
 client.on('message', message => {	
 var msg = message;
 
