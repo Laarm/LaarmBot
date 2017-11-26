@@ -7,6 +7,15 @@ var prefix = ".";
 const fs = require("fs");
 
 client.on('message', message => {	
+	
+if(message.content.startsWith(prefix + 'setgame ')) {
+if(message.author.id !== '252873409401323520') return;
+var args = message.content.split(' ').slice(1).join(' ')
+if(!args) return;
+client.user.setPresence({ game: { name: args, type: 0 } });
+message.channel.send('Le jeux du bot est maintenant **' + args + '**')
+}
+	
 var msg = message;
 
 if(message.content.startsWith(prefix + "help")){
