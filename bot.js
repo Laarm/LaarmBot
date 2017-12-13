@@ -6,15 +6,7 @@ const fs = require("fs");
 var prefix = ".";	
 
 client.on('message', message => {	
-	
 
-
-
-  if (command === "ping") {
-    message.channel.send("Ping?").then(message => {
-      message.edit(`Pong? - ${Math.round(client.ping)} ms`);
-    });
-  }
 
 
 if (command === "setPrefix") {
