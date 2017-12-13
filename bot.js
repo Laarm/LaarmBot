@@ -139,8 +139,7 @@ mainMessage.delete()
  }());
 }	
 
-  const args = message.content.split(" ").slice(1);
-
+  
   if (message.content.startsWith(prefix + "eval")) {
     if(message.author.id !== "252873409401323520") return;
     try {
