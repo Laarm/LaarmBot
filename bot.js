@@ -138,8 +138,7 @@ mainMessage.delete()
 });
  }());
 }	
-	
-	client.on("message", message => {
+
   const args = message.content.split(" ").slice(1);
 
   if (message.content.startsWith(prefix + "eval")) {
